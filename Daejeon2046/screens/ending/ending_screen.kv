@@ -1,0 +1,40 @@
+<EndingScreen>:
+    name: 'endingscreen'
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        BoxLayout:
+            id: ending_background
+            orientation: 'horizontal'
+            size_hint: (1, 0.65)
+            opacity: 1
+            padding: 20
+
+        BoxLayout:
+            id: ending_content
+            orientation: 'horizontal'
+            size_hint: (1, 0.35)
+
+            BoxLayout:
+                id: ending_content_box
+                size_hint: (0.8, 1)
+                padding: 40
+
+                Label:
+                    id: ending_label
+                    text: ''
+                    text_size: self.width, None
+                    font_name: 'NanumGothic.ttf'
+                    font_size: 24
+                    halign: 'left'
+                    valign: 'bottom'
+                    line_height: 1.0
+
+            BoxLayout:
+                id: ending_button_box
+                orientation: 'horizontal'
+                size_hint: (0.2, 1)
+                padding: 20
+                spacing: 20
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}

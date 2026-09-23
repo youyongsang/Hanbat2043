@@ -1,0 +1,127 @@
+#:set FONT_REGULAR "assets/fonts/GowunBatang-Regular.ttf"
+#:set FONT_BOLD "assets/fonts/GowunBatang-Bold.ttf"
+
+<GameScreen>:
+    main_layout: main_layout
+    text_area: text_area
+    right_layout: right_layout
+    stat_image_layout: stat_image_layout
+    choice1: choice1
+    choice2: choice2
+    choice3: choice3
+    choice4: choice4
+    image_overlay: image_overlay
+
+    BoxLayout:
+        id: main_layout
+        orientation: 'vertical'
+
+        # =======================
+        # 상단: 텍스트 + 우측 패널
+        # =======================
+        BoxLayout:
+            id: middle_layout
+            orientation: 'horizontal'
+            size_hint_y: 6/7
+
+            # -------- 텍스트 영역 --------
+            ClickableLabel:
+                id: text_area
+                size_hint_x: 7/8
+                font_name: FONT_REGULAR
+                font_size: 24
+                halign: 'left'
+                valign: 'top'
+                markup: True
+                text_size: self.width - 30, None
+                on_release: root.on_click_next_text()
+
+                canvas.before:
+                    Color:
+                        rgba: 0, 0, 0, 1
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+
+            # -------- 우측 패널 --------
+            BoxLayout:
+                id: right_layout
+                orientation: 'vertical'
+                size_hint_x: 1/8
+
+                Button:
+                    font_name: FONT_BOLD
+                    text: '능력창'
+                    size_hint_y: 0.15
+                    on_press: root.open_info_page(self)
+
+                Button:
+                    font_name: FONT_BOLD
+                    text: '진척도'
+                    size_hint_y: 0.15
+                    on_press: root.open_progress_page(self)
+
+                BoxLayout:
+                    id: stat_image_layout
+                    orientation: 'vertical'
+                    size_hint_y: 0.4
+
+                ColoredBox:
+                    color: 0, 0, 0, 1
+                    size_hint_y: 0.5
+
+        # =======================
+        # 하단: 선택지 영역
+        # =======================
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_y: 1/4
+
+            AnchorLayout:
+                anchor_y: 'bottom'
+                Button:
+                    id: choice4
+                    font_name: FONT_BOLD
+                    font_size: 22
+                    background_color: 0, 0, 0, 1
+                    on_press: root.on_choice(self)
+
+            AnchorLayout:
+                anchor_y: 'bottom'
+                Button:
+                    id: choice3
+                    font_name: FONT_BOLD
+                    font_size: 22
+                    background_color: 0, 0, 0, 1
+                    on_press: root.on_choice(self)
+
+            AnchorLayout:
+                anchor_y: 'bottom'
+                Button:
+                    id: choice2
+                    font_name: FONT_BOLD
+                    font_size: 22
+                    background_color: 0, 0, 0, 1
+                    on_press: root.on_choice(self)
+
+            AnchorLayout:
+                anchor_y: 'bottom'
+                Button:
+                    id: choice1
+                    font_name: FONT_BOLD
+                    font_size: 22
+                    background_color: 0, 0, 0, 1
+                    on_press: root.on_choice(self)
+
+    # =======================
+    # 이미지 오버레이 (텍스트 위)
+    # =======================
+    Widget:
+        id: image_overlay
+        opacity: 0
+        canvas:
+            Rectangle:
+                id: image_rect
+                source: ''
+                pos: text_area.x, text_area.y + text_area.height / 2
+                size: text_area.width, text_area.height / 2

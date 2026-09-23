@@ -1,0 +1,116 @@
+<MainMenu>:
+    name: 'mainmenu'
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_x: 1
+        size_hint_y: 1
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_x: 0.3
+            padding: 20
+
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint_y: None
+                height: 200
+                spacing: 15
+                pos_hint: {"y": 0}
+
+                Label:
+                    text: "오픈소스SW프로그래밍 팀프로젝트"
+                    halign: 'left' 
+                    valign: 'middle'
+                    text_size: self.width, None
+                    font_name: 'NanumGothic.ttf'
+                    font_size: 20
+                Label:
+                    text: "20##### 장예나"
+                    halign: 'left' 
+                    valign: 'middle'
+                    text_size: self.width, None
+                    font_name: 'NanumGothic.ttf'
+                    font_size: 18
+                Label:
+                    text: "20##### 유용상"
+                    halign: 'left' 
+                    valign: 'middle'
+                    text_size: self.width, None
+                    font_name: 'NanumGothic.ttf'
+                    font_size: 18
+                Label:
+                    text: "20191969 김우곤"
+                    halign: 'left' 
+                    valign: 'middle'
+                    text_size: self.width, None
+                    font_name: 'NanumGothic.ttf'
+                    font_size: 18
+                Label:
+                    text: "사용툴 : Python Kivy"
+                    halign: 'left' 
+                    valign: 'middle'
+                    text_size: self.width, None
+                    font_name: 'NanumGothic.ttf'
+                    font_size: 16
+                Label:
+                    text: "개발기간: 24.10.03 ~"
+                    halign: 'left' 
+                    valign: 'middle'
+                    text_size: self.width, None
+                    font_name: 'NanumGothic.ttf'
+                    font_size: 16
+                Label:
+                    text: "v1.0.0"
+                    halign: 'left' 
+                    valign: 'middle'
+                    text_size: self.width, None
+                    font_name: 'NanumGothic.ttf'
+                    font_size: 16
+
+        FloatLayout:
+            orientation: 'vertical'
+            size_hint_x: 0.4
+            padding: 10
+
+            Image:
+                source: 'assets/image_file/background.png'
+                size_hint_y: 1
+                allow_stretch: True
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: 20
+                size_hint_y: 0.5
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+                Button:
+                    text: '> 게임 시작'
+                    font_name: 'NanumGothic.ttf'
+                    font_size: 35
+                    size_hint: None, None
+                    size: self.texture_size
+                    padding: [10, 10]
+                    pos_hint: {'center_x': 0.5}
+                    background_normal: ''
+                    background_color: 0, 0, 0, 0
+                    color: 0, 0, 0, 1
+                    on_press: app.start_game()
+
+
+                Button:
+                    text: '> 게임 종료'
+                    font_name: 'NanumGothic.ttf'
+                    font_size: 35
+                    size_hint: None, None
+                    size: self.texture_size
+                    padding: [10, 10]
+                    pos_hint: {'center_x': 0.5}
+                    background_normal: ''
+                    background_color: 0, 0, 0, 0
+                    color: 0, 0, 0, 1
+                    on_press: app.quit_game()
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_x: 0.3
